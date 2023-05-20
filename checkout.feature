@@ -18,20 +18,20 @@
             Esquema do Cenário: Adicionar produto ao carrinho com os campos obrigatórios devidamente preenchidos
             Quando eu selecionar a <cor>
             E selecionar o <tamanho>
-            E preencher a <quantidade>
+            E selecionar a <quantidade>
             E clicar em "Adicionar ao Carrinho"
             Então deve exibir a mensagem: "Produto adicionado ao carrinho"
 
             Esquema do Cenário: Tentar adicionar produto ao carrinho sem preencher o campo COR
             Quando selecionar o <tamanho>
-            E preencher a <quantidade>
+            E selecionar a <quantidade>
             E clicar em "Adicionar ao Carrinho"
             Então deve exibir a mensagem: "Campo obrigatório não preenchido"
             E destacar o campo não preenchido
 
             Esquema do Cenário: Tentar adicionar produto ao carrinho sem preencher o campo TAMANHO
             Quando eu selecionar a <cor>
-            E preencher a <quantidade>
+            E selecionar a <quantidade>
             E clicar em "Adicionar ao Carrinho"
             Então deve exibir a mensagem: "Campo obrigatório não preenchido"
             E destacar o campo não preenchido
@@ -46,7 +46,7 @@
             Esquema do Cenário: Resetar as configurações do produto
             Quando eu selecionar a <cor>
             E selecionar o <tamanho>
-            E preencher a <quantidade>
+            E selecionar a <quantidade>
             E clicar em "Limpar"
             Então todas as opções preenchidas deverão ser resetadas ao seu status inicial
 
