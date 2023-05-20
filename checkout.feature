@@ -13,37 +13,40 @@
 
             Contexto:
             Dado que eu acesse a página do produto na EBAC-SHOP
-            E o produto permita a seleção de no máximo 10 items por compra
+            E a página permite selecionar no máximo 10 produtos por compra
 
-            Cenário: Adicionar produto ao carrinho com os campos obrigatórios preenchidos
+            Esquema do Cenário: Adicionar produto ao carrinho com os campos obrigatórios devidamente preenchidos
             Quando eu selecionar a <cor>
             E selecionar o <tamanho>
-            E selecionar a <quantidade>
+            E preencher a <quantidade>
             E clicar em "Adicionar ao Carrinho"
             Então deve exibir a mensagem: "Produto adicionado ao carrinho"
 
-            Cenário: Tentar adicionar produto ao carrinho sem preencher o campo COR
+            Esquema do Cenário: Tentar adicionar produto ao carrinho sem preencher o campo COR
             Quando selecionar o <tamanho>
-            E selecionar a <quantidade>
+            E preencher a <quantidade>
             E clicar em "Adicionar ao Carrinho"
             Então deve exibir a mensagem: "Campo obrigatório não preenchido"
+            E destacar o campo não preenchido
 
-            Cenário: Tentar adicionar produto ao carrinho sem preencher o campo TAMANHO
+            Esquema do Cenário: Tentar adicionar produto ao carrinho sem preencher o campo TAMANHO
             Quando eu selecionar a <cor>
-            E selecionar a <quantidade>
+            E preencher a <quantidade>
             E clicar em "Adicionar ao Carrinho"
             Então deve exibir a mensagem: "Campo obrigatório não preenchido"
+            E destacar o campo não preenchido
 
-            Cenário: Tentar adicionar produto ao carrinho sem preencher o campo QUANTIDADE
+            Esquema do Cenário: Tentar adicionar produto ao carrinho sem preencher o campo QUANTIDADE
             Quando eu selecionar a <cor>
             E selecionar o <tamanho>
             E clicar em "Adicionar ao Carrinho"
             Então deve exibir a mensagem: "Campo obrigatório não preenchido"
+            E destacar o campo não preenchido
 
             Esquema do Cenário: Resetar as configurações do produto
             Quando eu selecionar a <cor>
             E selecionar o <tamanho>
-            E selecionar a <quantidade>
+            E preencher a <quantidade>
             E clicar em "Limpar"
             Então todas as opções preenchidas deverão ser resetadas ao seu status inicial
 
