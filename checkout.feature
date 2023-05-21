@@ -1,58 +1,33 @@
-            #language: pt
+            #languague: pt
 
-            Funcionalidade: Configurar Produto
+            Funcionalidade: Tela de cadastro - Checkout
             Como cliente da EBAC-SHOP
-            Quero configurar meu produto de acordo com meu tamanho e gosto
-            E escolher a quantidade
-            Para depois inserir no carrinho
+            Quero fazer concluir meu cadastro
+            Para finalizar minha compra
 
-            # Critérios de Aceitação
-            # 1 – Seleções de cor, tamanho e quantidade devem ser obrigatórios
-            # 2 – Deve permitir apenas 10 produtos por venda
-            # 3 – Quando eu clicar no botão “limpar” deve voltar ao estado original
+            # Critérios de Aceitação:
+            # 1 – Deve ser cadastrado com todos os dados obrigatórios, marcado com asteriscos
+            # 2 – Não deve permitir campo e-mail com formato inválido. Sistema deve inserir uma mensagem de erro
+            # 3 – Ao tentar cadastrar com campos vazios, deve exibir mensagem de alerta.
 
             Contexto:
-            Dado que eu acesse a página do produto na EBAC-SHOP
-            E a página permite selecionar no máximo 10 produtos por compra
+            Dado que o usuário esteja na tela de Checkout
 
-            Esquema do Cenário: Adicionar produto ao carrinho com os campos obrigatórios devidamente preenchidos
-            Quando eu selecionar a <cor>
-            E selecionar o <tamanho>
-            E selecionar a <quantidade>
-            E clicar em "Adicionar ao Carrinho"
-            Então deve exibir a mensagem: "Produto adicionado ao carrinho"
-
-            Esquema do Cenário: Tentar adicionar produto ao carrinho sem preencher o campo COR
-            Quando selecionar o <tamanho>
-            E selecionar a <quantidade>
-            E clicar em "Adicionar ao Carrinho"
-            Então deve exibir a mensagem: "Campo obrigatório não preenchido"
-            E destacar o campo não preenchido
-
-            Esquema do Cenário: Tentar adicionar produto ao carrinho sem preencher o campo TAMANHO
-            Quando eu selecionar a <cor>
-            E selecionar a <quantidade>
-            E clicar em "Adicionar ao Carrinho"
-            Então deve exibir a mensagem: "Campo obrigatório não preenchido"
-            E destacar o campo não preenchido
-
-            Esquema do Cenário: Tentar adicionar produto ao carrinho sem preencher o campo QUANTIDADE
-            Quando eu selecionar a <cor>
-            E selecionar o <tamanho>
-            E clicar em "Adicionar ao Carrinho"
-            Então deve exibir a mensagem: "Campo obrigatório não preenchido"
-            E destacar o campo não preenchido
-
-            Esquema do Cenário: Resetar as configurações do produto
-            Quando eu selecionar a <cor>
-            E selecionar o <tamanho>
-            E selecionar a <quantidade>
-            E clicar em "Limpar"
-            Então todas as opções preenchidas deverão ser resetadas ao seu status inicial
+            Esquema do Cenário: Conclusão de cadastro de múltiplos usuários
+            Quando eu preencher o <nome>
+            E o <sobrenome>
+            E o <pais>
+            E o <endereco>
+            E a <cidade>
+            E o <cep>
+            E o <telefone>
+            E o <endereco_de_email>
+            E clicar no botão "FINALIZAR COMPRA"
+            Entao deve exibir a <mensagem>
 
             Exemplos:
-            | cor        | tamanho | quantidade |
-            | "azul"     | "P"     | "1"        |
-            | "vermelho" | "M"     | "3"        |
-            | "verde"    | "G"     | "6"        |
-            | "amaralo"  | "GG"    | "10"       |
+            | nome      | sobrenome     | pais     | endereco                                    | cidade           | cep         | telefone      | endereco_de_email            | mensagem                                          |
+            | "Emanuel" | "Santos"      | "Brasil" | "Rua XYZ, nº 90, Bairro dos Encantados"     | "Porto Alegre"   | "99999-999" | "51999999999" | "emanuelxpto@gmail.com"      | "Parabéns Emanuel! Compra concluída com sucesso!" |
+            | "Joaquim" | "Silva"       | "Brasil" | "Rua dos Alagados, 1230"                    | "Rio de Janeiro" | "77777-777" | "54878787878" | "joaquim_silva#gmail.com.br" | "Atenção! Formato de e-mail invalido"             |
+            | "Sabrina" | "Albuquerque" |          |                                             |                  |             |               | "sabrina@gmail.com.br"       | "Atenção! Campos Obrigatórios não preenchidos"    |
+            | "Susane"  | "Alves"       | "Brasil" | "Rua das Hortênsias, nº 10, Bairro Salomão" | "Curitiba"       | "88888-888" | "43888888888" | "susanexpto@gmail.com"       | "Parabéns Susane! Compra concluída com sucesso!"  |
