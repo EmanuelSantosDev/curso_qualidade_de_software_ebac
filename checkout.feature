@@ -1,33 +1,26 @@
-            #languague: pt
+#languague: pt
 
-            Funcionalidade: Tela de cadastro - Checkout
-            Como cliente da EBAC-SHOP
-            Quero fazer concluir meu cadastro
-            Para finalizar minha compra
+Funcionalidade: Tela de cadastro - Checkout
+Como cliente da EBAC-SHOP
+Quero fazer concluir meu cadastro
+Para finalizar minha compra
 
-            # Critérios de Aceitação:
-            # 1 – Deve ser cadastrado com todos os dados obrigatórios, marcado com asteriscos
-            # 2 – Não deve permitir campo e-mail com formato inválido. Sistema deve inserir uma mensagem de erro
-            # 3 – Ao tentar cadastrar com campos vazios, deve exibir mensagem de alerta.
+# Critérios de Aceitação:
+# 1 – Deve ser cadastrado com todos os dados obrigatórios, marcado com asteriscos
+# 2 – Não deve permitir campo e-mail com formato inválido. Sistema deve inserir uma mensagem de erro
+# 3 – Ao tentar cadastrar com campos vazios, deve exibir mensagem de alerta.
 
-            Contexto:
-            Dado que o usuário esteja na tela de Checkout
+Contexto:
+Dado que eu esteja na tela de checkout
 
-            Esquema do Cenário: Conclusão de cadastro de múltiplos usuários
-            Quando eu preencher o <nome>
-            E o <sobrenome>
-            E o <pais>
-            E o <endereco>
-            E a <cidade>
-            E o <cep>
-            E o <telefone>
-            E o <endereco_de_email>
-            E clicar no botão "FINALIZAR COMPRA"
-            Entao deve exibir a <mensagem>
+Cenário: Cadastro válido
+Quando eu preencher todos os campos obrigatórios marcados com asterisco
+Então a minha compra será finalizada com sucesso
 
-            Exemplos:
-            | nome      | sobrenome     | pais     | endereco                                    | cidade           | cep         | telefone      | endereco_de_email            | mensagem                                          |
-            | "Emanuel" | "Santos"      | "Brasil" | "Rua XYZ, nº 90, Bairro dos Encantados"     | "Porto Alegre"   | "99999-999" | "51999999999" | "emanuelxpto@gmail.com"      | "Parabéns Emanuel! Compra concluída com sucesso!" |
-            | "Joaquim" | "Silva"       | "Brasil" | "Rua dos Alagados, 1230"                    | "Rio de Janeiro" | "77777-777" | "54878787878" | "joaquim_silva#gmail.com.br" | "Atenção! Formato de e-mail invalido"             |
-            | "Sabrina" | "Albuquerque" |          |                                             |                  |             |               | "sabrina@gmail.com.br"       | "Atenção! Campos Obrigatórios não preenchidos"    |
-            | "Susane"  | "Alves"       | "Brasil" | "Rua das Hortênsias, nº 10, Bairro Salomão" | "Curitiba"       | "88888-888" | "43888888888" | "susanexpto@gmail.com"       | "Parabéns Susane! Compra concluída com sucesso!"  |
+Cenário: Cadastro com campos obrigatórios preenchidos parcialmente
+Quando eu preencher parcialmente os campos obrigatórios marcados com asterisco
+Então o sistema deverá exibir uma mensagem informando: "Campos obrigatórios não preenchidos"
+
+Cenário: Cadastro com campo de e-mail em formato inválido
+Quando eu preencher o campo de e-mail com um formato inválido
+Então o sistema devera exibir uma mensagem de alerta informando: "Formato de e-mail incorreto"
